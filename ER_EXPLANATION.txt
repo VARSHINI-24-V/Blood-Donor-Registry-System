@@ -1,0 +1,22 @@
+DONOR (1) ──────────── (M) DONATION
+
+Primary Keys
+Table	  Primary Key
+Donor	    id
+Donation	id
+
+Foreign Key
+Table	    Foreign Key
+Donation	donor_id → Donor.id
+
+
+# Database Design Justification
+
+The application uses two normalized tables: Donor and Donation.
+A donor can donate blood multiple times,
+so a one-to-many relationship exists between Donor and Donation.
+Instead of storing only the latest donation date in the Donor table,
+every donation is stored in the Donation table.
+This preserves the complete donation history and allows the system to 
+calculate donor eligibility based on the most recent donation while 
+maintaining historical records.

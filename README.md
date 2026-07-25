@@ -2,80 +2,118 @@
 
 ## 📖 Project Description
 
-The Blood Donor Registry System is a full-stack web application developed to manage blood donors efficiently.
-
-The system allows users to:
-
-- Register new blood donors
-- View all registered donors
-- Search donors by blood group and area
-- Update donor information
-- Delete donor records
-- Record blood donations
-- View donation history
-- Check donor eligibility based on the last donation date (90-day rule)
-- View dashboard statistics
-
-This project is built using React for the frontend and FastAPI for the backend with MySQL as the database.
+The Blood Donor Registry System is a full-stack web application that helps hospitals efficiently manage blood donor information. It enables staff to register donors, search donors based on blood group and area, maintain donation history, and determine donor eligibility based on the 90-day donation rule.
 
 ---
 
-## 🚀 Technology Stack
+# 🚀 Technology Stack
 
-### Frontend
+## Frontend
 
 - React.js
 - Bootstrap 5
-- React Router DOM
 - Axios
+- React Router DOM
 - React Icons
 
-### Backend
+## Backend
 
 - FastAPI
 - SQLAlchemy
 - Pydantic
 - Uvicorn
 
-### Database
+## Database
 
 - MySQL
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
 ```
-Blood Donor Registry
-
-Frontend
+Blood-Donor-Registry-System
 │
-├── React
-├── Bootstrap
-├── Axios
-
-Backend
-│
-├── FastAPI
-├── SQLAlchemy
-├── MySQL
+├── frontend
+├── backend
+├── database
+│   ├── ER_Diagram.png
+│   └── Database_Design.md
+├── README.md
 ```
 
 ---
 
-## ⚙️ Installation & Execution Steps
+# ✨ Features
 
-### Clone Repository
+- Dashboard
+- Add Donor
+- Edit Donor
+- Delete Donor
+- Search Donors
+- Filter by Blood Group
+- Filter by Area
+- Donation History
+- Eligibility Checker
+- Responsive Bootstrap UI
+
+---
+
+# 🗄 Database Fields
+
+## Donor Table
+
+| Field | Description |
+|--------|-------------|
+| id | Unique Donor ID |
+| name | Donor Name |
+| phone | Contact Number |
+| blood_group | Blood Group |
+| area | Residential Area |
+| gender | Gender |
+| dob | Date of Birth |
+
+---
+
+## Donation Table
+
+| Field | Description |
+|--------|-------------|
+| id | Donation Record ID |
+| donor_id | References Donor Table |
+| donation_date | Date of Blood Donation |
+| remarks | Additional Notes |
+
+---
+
+# 📊 Derived Figure Calculation
+
+The donor eligibility is calculated on the server.
+
+```
+Days Since Last Donation =
+Current Date − Last Donation Date
+```
+
+If the number of days is **90 or more**, the donor is **Eligible**.
+
+Otherwise, the donor is **Not Eligible**.
+
+This calculation is performed in the FastAPI backend and returned to the frontend.
+
+---
+
+# ⚙ Installation & Execution
+
+## Clone Repository
 
 ```bash
-git clone <repository-link>
+git clone <repository-url>
 ```
 
 ---
 
-### Backend Setup
-
-Navigate to backend folder
+## Backend
 
 ```bash
 cd backend
@@ -87,13 +125,13 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
-Start FastAPI server
+Run server
 
 ```bash
 uvicorn main:app --reload
 ```
 
-Backend runs at
+Backend
 
 ```
 http://127.0.0.1:8000
@@ -101,9 +139,7 @@ http://127.0.0.1:8000
 
 ---
 
-### Frontend Setup
-
-Navigate to frontend folder
+## Frontend
 
 ```bash
 cd frontend
@@ -115,13 +151,13 @@ Install packages
 npm install
 ```
 
-Run React application
+Run application
 
 ```bash
 npm run dev
 ```
 
-Frontend runs at
+Frontend
 
 ```
 http://localhost:5173
@@ -129,19 +165,36 @@ http://localhost:5173
 
 ---
 
-## ✨ Features
+# 🔗 API Endpoints
 
-- Dashboard
-- Add Donor
-- Edit Donor
-- Delete Donor
-- Search Donor
-- Donation History
-- Eligibility Checker
-- Responsive Bootstrap UI
+## Donors
+
+- POST /donors
+- GET /donors
+- GET /donors/{id}
+- PUT /donors/{id}
+- DELETE /donors/{id}
+- GET /donors/search
+- GET /donors/dashboard
+
+## Donations
+
+- POST /donations
+- GET /donations/{donor_id}
+- GET /donations/{donor_id}/eligibility
 
 ---
 
-## 👨‍💻 Author
+# 🖼 ER Diagram
+
+The ER Diagram and database design are available in the `database/` folder.
+
+---
+
+# 👩‍💻 Author
 
 **Varshini V**
+
+B.Tech Artificial Intelligence and Data Science
+
+Prince Dr. K. Vasudevan College of Engineering and Technology
