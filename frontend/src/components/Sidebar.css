@@ -1,0 +1,26 @@
+.sidebar{
+    width:230px;
+    background:white;
+    min-height:100vh;
+    box-shadow:2px 0 8px rgba(0,0,0,.1);
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:18px;
+    border-bottom:1px solid #eee;
+}
+
+.sidebar a{
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+}
+
+.sidebar li:hover{
+    background:#f1f1f1;
+    cursor:pointer;
+}

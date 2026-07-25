@@ -1,0 +1,47 @@
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    margin-top:20px;
+    box-shadow:0 5px 10px rgba(0,0,0,.08);
+}
+
+th{
+    background:#c62828;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+tr:hover{
+    background:#fafafa;
+}
+
+button{
+    background:#c62828;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#a61d1d;
+}
+
+input,select{
+    padding:10px;
+    margin-right:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+h1{
+    margin-bottom:20px;
+}
