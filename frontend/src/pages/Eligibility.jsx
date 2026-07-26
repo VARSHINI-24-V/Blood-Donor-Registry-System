@@ -43,11 +43,11 @@ function Eligibility() {
 
     return (
 
-        <div className="container mt-4">
+       <div className="container-fluid mt-4">
 
             <div className="row justify-content-center">
 
-                <div className="col-lg-7">
+              <div className="col-lg-10 col-md-11">
 
                     <div className="card shadow-lg border-0 rounded-4">
 
@@ -129,15 +129,15 @@ function Eligibility() {
 
                                     </h5>
 
-                                    <p>
-                                        <strong>Last Donation:</strong>{" "}
-                                        {result.last_donation_date ?? "No donation yet"}
-                                    </p>
+                                   <p>
+    <strong>Last Donation:</strong>{" "}
+    {result.last_donation ?? "No donation yet"}
+</p>
 
-                                    <p>
-                                        <strong>Days Since Last Donation:</strong>{" "}
-                                        {result.days_since_last_donation}
-                                    </p>
+                                  <p>
+    <strong>Days Since Last Donation:</strong>{" "}
+    {result.days_since_last_donation ?? "N/A"}
+</p>
 
                                 </div>
 

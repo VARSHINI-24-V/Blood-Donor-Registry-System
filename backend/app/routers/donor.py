@@ -29,11 +29,13 @@ def get_donors(db: Session = Depends(get_db)):
 
 @router.get("/search", response_model=list[schemas.DonorResponse])
 def search_donors(
-    blood_group: str,
-    area: str,
+    blood_group: str = "",
+    area: str = "",
     db: Session = Depends(get_db)
 ):
     return crud.search_donors(db, blood_group, area)
+
+
 @router.get("/dashboard")
 def dashboard(db: Session = Depends(get_db)):
     return crud.get_dashboard_stats(db)

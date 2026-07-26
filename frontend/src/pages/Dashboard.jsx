@@ -5,6 +5,7 @@ import {
     FaTint,
     FaHeartbeat
 } from "react-icons/fa";
+import "./Dashboard.css";
 
 function Dashboard() {
 
@@ -24,28 +25,32 @@ function Dashboard() {
     return (
         <div className="container-fluid">
 
+            {/* Heading */}
+
             <h2 className="text-danger fw-bold mb-4">
                 📊 Dashboard
             </h2>
 
-            <div className="row g-4">
+            {/* Statistics Cards */}
+
+            <div className="row g-4 mb-5">
 
                 <div className="col-md-4">
 
-                    <div className="card shadow border-0 rounded-4">
+                    <div className="card shadow border-0 rounded-4 dashboard-card">
 
-                        <div className="card-body text-center">
+                        <div className="card-body text-center py-4">
 
                             <FaUsers
-                                size={45}
+                                size={55}
                                 className="text-primary mb-3"
                             />
 
                             <h5>Total Donors</h5>
 
-                            <h2 className="fw-bold">
+                            <h1 className="display-4 fw-bold">
                                 {stats.total_donors}
-                            </h2>
+                            </h1>
 
                         </div>
 
@@ -55,20 +60,20 @@ function Dashboard() {
 
                 <div className="col-md-4">
 
-                    <div className="card shadow border-0 rounded-4">
+                    <div className="card shadow border-0 rounded-4 dashboard-card">
 
-                        <div className="card-body text-center">
+                        <div className="card-body text-center py-4">
 
                             <FaTint
-                                size={45}
+                                size={55}
                                 className="text-danger mb-3"
                             />
 
                             <h5>Total Donations</h5>
 
-                            <h2 className="fw-bold">
+                            <h1 className="display-4 fw-bold">
                                 {stats.total_donations}
-                            </h2>
+                            </h1>
 
                         </div>
 
@@ -78,20 +83,20 @@ function Dashboard() {
 
                 <div className="col-md-4">
 
-                    <div className="card shadow border-0 rounded-4">
+                    <div className="card shadow border-0 rounded-4 dashboard-card">
 
-                        <div className="card-body text-center">
+                        <div className="card-body text-center py-4">
 
                             <FaHeartbeat
-                                size={45}
+                                size={55}
                                 className="text-success mb-3"
                             />
 
-                            <h5>Life Saved ❤️</h5>
+                            <h5>Lives Saved ❤️</h5>
 
-                            <h2 className="fw-bold">
+                            <h1 className="display-4 fw-bold">
                                 {stats.total_donations * 3}
-                            </h2>
+                            </h1>
 
                             <small className="text-muted">
                                 Approximation
@@ -105,21 +110,57 @@ function Dashboard() {
 
             </div>
 
-            <div className="card shadow border-0 rounded-4 mt-5">
+            {/* Welcome Card */}
 
-                <div className="card-body">
+            <div className="card shadow border-0 rounded-4 dashboard-card mt-5">
 
-                    <h4 className="text-danger mb-3">
-                        Welcome 👋
-                    </h4>
+                <div className="card-body p-4">
 
-                    <p className="text-muted">
+                    <h3 className="text-danger fw-bold">
+                        🩸 Welcome to Blood Donor Registry System
+                    </h3>
 
-                        This Blood Donor Registry System helps manage
-                        donors, donation history, eligibility checking,
-                        and donor search efficiently.
-
+                    <p className="lead text-muted mt-3">
+                        Manage donors, track donation history, check donor
+                        eligibility, and search blood donors quickly through
+                        one centralized dashboard.
                     </p>
+
+                    <hr />
+
+                    <div className="row text-center mt-4">
+
+                        <div className="col-md-4">
+
+                            <h4>👥 Donors</h4>
+
+                            <p className="text-muted mb-0">
+                                Register and manage donors.
+                            </p>
+
+                        </div>
+
+                        <div className="col-md-4">
+
+                            <h4>🩸 Donations</h4>
+
+                            <p className="text-muted mb-0">
+                                Maintain donation records.
+                            </p>
+
+                        </div>
+
+                        <div className="col-md-4">
+
+                            <h4>❤️ Eligibility</h4>
+
+                            <p className="text-muted mb-0">
+                                Check donor eligibility instantly.
+                            </p>
+
+                        </div>
+
+                    </div>
 
                 </div>
 

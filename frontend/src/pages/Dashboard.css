@@ -17,3 +17,12 @@
     color:#c62828;
     margin-top:10px;
 }
+.dashboard-card{
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dashboard-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,.18) !important;
+}

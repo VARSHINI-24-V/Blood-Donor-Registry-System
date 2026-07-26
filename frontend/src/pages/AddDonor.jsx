@@ -1,7 +1,7 @@
 import { useState } from "react";
 import api from "../services/api";
 import { FaUserPlus } from "react-icons/fa";
-
+import Swal from "sweetalert2";
 function AddDonor() {
 
     const [form, setForm] = useState({
@@ -27,7 +27,12 @@ function AddDonor() {
 
             await api.post("/donors", form);
 
-            alert("✅ Donor Added Successfully");
+           Swal.fire({
+    title: "Success!",
+    text: "Donor added successfully.",
+    icon: "success",
+    confirmButtonColor: "#dc3545"
+});
 
             setForm({
                 name: "",
@@ -41,18 +46,23 @@ function AddDonor() {
         } catch (err) {
 
             console.log(err);
-            alert("❌ Error Adding Donor");
+           Swal.fire({
+    title: "Error!",
+    text: err.response?.data?.detail || "Unable to add donor.",
+    icon: "error",
+    confirmButtonColor: "#dc3545"
+});
 
         }
     };
 
     return (
 
-        <div className="container mt-4">
+       <div className="container-fluid mt-4">
 
-            <div className="row justify-content-center">
+    <div className="row justify-content-center">
 
-                <div className="col-lg-7">
+     <div className="col-lg-10 col-md-11">
 
                     <div className="card shadow-lg border-0 rounded-4">
 

@@ -36,11 +36,21 @@ def get_all_donors(db: Session):
 
     return db.query(models.Donor).all()
 
-def search_donors(db: Session, blood_group: str, area: str):
-    return db.query(models.Donor).filter(
-        models.Donor.blood_group == blood_group,
-        models.Donor.area == area
-    ).all()
+def search_donors(db: Session, blood_group: str = "", area: str = ""):
+
+    query = db.query(models.Donor)
+
+    if blood_group:
+        query = query.filter(
+            models.Donor.blood_group == blood_group
+        )
+
+    if area:
+        query = query.filter(
+            models.Donor.area == area
+        )
+
+    return query.all()
 
 def create_donation(
     db: Session,

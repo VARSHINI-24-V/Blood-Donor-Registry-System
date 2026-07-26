@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaUserEdit } from "react-icons/fa";
 import api from "../services/api";
-
+import Swal from "sweetalert2";
 function EditDonor() {
 
     const { id } = useParams();
@@ -44,15 +44,25 @@ function EditDonor() {
 
             await api.put(`/donors/${id}`, form);
 
-            alert("✅ Donor Updated Successfully");
-
-            navigate("/donors");
+           Swal.fire({
+    title: "Updated!",
+    text: "Donor updated successfully.",
+    icon: "success",
+    confirmButtonColor: "#dc3545"
+}).then(() => {
+    navigate("/donors");
+});
 
         } catch (err) {
 
             console.log(err);
 
-            alert("❌ Error Updating Donor");
+            Swal.fire({
+    title: "Update Failed!",
+    text: "Unable to update donor.",
+    icon: "error",
+    confirmButtonColor: "#dc3545"
+});
 
         }
 
@@ -60,11 +70,11 @@ function EditDonor() {
 
     return (
 
-        <div className="container mt-4">
+       <div className="container-fluid mt-4">
 
             <div className="row justify-content-center">
 
-                <div className="col-lg-7">
+              <div className="col-lg-10 col-md-11">
 
                     <div className="card shadow-lg border-0 rounded-4">
 
