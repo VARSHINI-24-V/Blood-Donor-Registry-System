@@ -9,7 +9,7 @@ class Donor(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(100), nullable=False)
-    phone = Column(String(15), unique=True, nullable=False)
+    phone = Column(String(10), unique=True, nullable=False)
     blood_group = Column(
         Enum('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'),
         nullable=False
